@@ -1,0 +1,1068 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Federato ISO / Verisk Executive Brief</title>
+  <style>
+    :root {
+      --ink: #241713;
+      --ink-2: #3b2924;
+      --text: #202124;
+      --muted: #6f6a64;
+      --bg: #f7f7f6;
+      --surface: #ffffff;
+      --soft: #fbfaf7;
+      --line: #dedbd4;
+      --green: #2fac5f;
+      --green-soft: #edf8f1;
+      --orange: #c77938;
+      --orange-dark: #8c4a24;
+      --orange-soft: #f8efe5;
+      --blue: #3157d5;
+      --blue-soft: #eef2ff;
+      --red: #c83542;
+      --red-soft: #fff0f1;
+      --shadow: 0 14px 32px rgba(32, 33, 36, .08);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a.source-link {
+      color: var(--blue);
+      font-weight: 750;
+      overflow-wrap: anywhere;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a.source-link:hover {
+      color: var(--orange-dark);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 0 28px;
+      background: linear-gradient(135deg, #3b2924 0%, #2b1d19 58%, #231612 100%);
+      color: #fff;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, .08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 260px;
+    }
+
+    .brand img {
+      width: 154px;
+      height: auto;
+      display: block;
+    }
+
+    .brand-tag {
+      display: inline-flex;
+      align-items: center;
+      height: 22px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: #25428d;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .topnav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+    }
+
+    .topnav a {
+      display: inline-flex;
+      align-items: center;
+      height: 34px;
+      padding: 0 11px;
+      border-radius: 7px;
+      color: rgba(255, 255, 255, .78);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .topnav a:hover {
+      background: rgba(255, 255, 255, .11);
+      color: #fff;
+    }
+
+    .page {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 22px;
+    }
+
+    .hero-main {
+      min-height: 380px;
+      padding: 36px;
+      border-radius: var(--radius);
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(36, 23, 19, .93), rgba(59, 41, 36, .86)),
+        linear-gradient(120deg, #2f211d 0%, #5a3825 58%, #c77938 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      bottom: -120px;
+      width: 420px;
+      height: 285px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 50%;
+      transform: rotate(-18deg);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: #f1c19a;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #f55a26;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0 0 14px;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: .98;
+      letter-spacing: 0;
+      font-weight: 760;
+    }
+
+    .hero-copy {
+      max-width: 780px;
+      margin: 0;
+      color: rgba(255, 255, 255, .82);
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 34px;
+      max-width: 820px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .metric {
+      min-height: 88px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 26px;
+      line-height: 1;
+      color: #fff;
+    }
+
+    .metric span {
+      color: rgba(255, 255, 255, .76);
+      font-size: 13px;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 14px;
+    }
+
+    .panel,
+    .section {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .panel {
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel h2,
+    .section h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .panel p {
+      margin: 8px 0 14px;
+      color: var(--muted);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .chip.green {
+      border-color: rgba(47, 172, 95, .35);
+      background: var(--green-soft);
+      color: #1f7d44;
+    }
+
+    .chip.orange {
+      border-color: rgba(199, 121, 56, .36);
+      background: var(--orange-soft);
+      color: var(--orange-dark);
+    }
+
+    .brief-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 38px;
+      margin-top: 8px;
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--soft);
+      font-size: 13px;
+    }
+
+    .brief-line b {
+      color: var(--ink);
+    }
+
+    .brief-line span {
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .section {
+      margin-top: 22px;
+      padding: 22px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-header p {
+      max-width: 850px;
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      min-height: 190px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--orange);
+    }
+
+    .card.green::before {
+      background: var(--green);
+    }
+
+    .card.blue::before {
+      background: var(--blue);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--ink);
+      font-size: 19px;
+      line-height: 1.15;
+    }
+
+    .card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .kicker {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    ul.clean {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul.clean li {
+      position: relative;
+      padding-left: 18px;
+      margin: 8px 0;
+      color: var(--text);
+    }
+
+    ul.clean li::before {
+      content: "";
+      position: absolute;
+      top: .66em;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 2px;
+      background: var(--orange);
+      transform: translateY(-50%);
+    }
+
+    .stack {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(128px, 1fr));
+      gap: 9px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .stack-item {
+      min-height: 122px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .stack-item .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 25px;
+      height: 25px;
+      margin-bottom: 9px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .stack-item b {
+      display: block;
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    .stack-item span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .flow-step {
+      min-height: 96px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--soft);
+    }
+
+    .flow-step b {
+      display: block;
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    .flow-step span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--ink);
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    td:first-child {
+      font-weight: 800;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .quote {
+      padding: 22px;
+      border-left: 5px solid var(--orange);
+      border-radius: var(--radius);
+      background: var(--orange-soft);
+      color: var(--ink);
+      font-size: 19px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .footer {
+      margin: 22px 0 4px;
+      padding: 20px 22px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .footer b {
+      color: #fff;
+    }
+
+    @media (max-width: 1120px) {
+      .hero,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3,
+      .flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar {
+        position: relative;
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 16px;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .topnav {
+        width: 100%;
+      }
+
+      .page {
+        padding: 16px;
+      }
+
+      .hero-main {
+        min-height: auto;
+        padding: 24px;
+      }
+
+      .hero-meta,
+      .grid-3,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 16px;
+      }
+
+      .section-header {
+        flex-direction: column;
+      }
+    }
+
+    @media print {
+      .topbar {
+        position: static;
+      }
+
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+
+      .hero,
+      .grid-2,
+      .grid-3,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .section,
+      .hero-main,
+      .panel,
+      .card {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="Federato">
+      <span class="brand-tag">Verisk Brief</span>
+    </div>
+    <nav class="topnav" aria-label="Page sections">
+      <a href="#thesis">Thesis</a>
+      <a href="#stack">PAS Stack</a>
+      <a href="#mvps">MVPs</a>
+      <a href="#partner">Partner Fit</a>
+      <a href="#questions">Questions</a>
+      <a href="#sources">Sources</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-main">
+        <div class="eyebrow">CEO and Executive Prep</div>
+        <h1>Federato can operationalize ISO content where carriers feel the real work.</h1>
+        <p class="hero-copy">The Verisk conversation should center on a shared opportunity: helping carriers turn ISO content into governed rates, rules, forms, state decisions, filings, and underwriting workflows.</p>
+        <div class="hero-meta" aria-label="Executive summary">
+          <div class="metric">
+            <strong>7</strong>
+            <span>minimum viable ISO / Verisk content categories</span>
+          </div>
+          <div class="metric">
+            <strong>3</strong>
+            <span>commercial MVP paths for build, maintenance, and filings</span>
+          </div>
+          <div class="metric">
+            <strong>1</strong>
+            <span>platform spine across source, configuration, approval, and evidence</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="panel">
+          <h2>Executive Message</h2>
+          <p>Federato should position this as a staged full-PAS build, starting with an ISO-aware product operations layer that makes Verisk content actionable inside carrier workflows.</p>
+          <div class="chip-row">
+            <span class="chip green">ISO-aware</span>
+            <span class="chip orange">AI-native</span>
+            <span class="chip">Human reviewed</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Meeting Posture</h2>
+          <div class="brief-line"><b>Lead with</b><span>workflow value</span></div>
+          <div class="brief-line"><b>Frame</b><span>staged full-PAS build</span></div>
+          <div class="brief-line"><b>Ask for</b><span>content and partner paths</span></div>
+          <div class="brief-line"><b>Show</b><span>carrier pain clarity</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="thesis">
+      <div class="section-header">
+        <div>
+          <h2>Strategic Thesis</h2>
+          <p>ISO content is valuable, but carriers still carry the burden of interpretation, configuration, adoption decisions, state variation, testing, filings, and audit evidence.</p>
+        </div>
+        <span class="pill">Core narrative</span>
+      </div>
+      <div class="quote">ISO / Verisk provides the source product content. Federato can help carriers turn that content into configured, tested, versioned, auditable, and portfolio-aware operating workflows.</div>
+      <div class="flow" style="margin-top:14px">
+        <div class="flow-step"><b>Source Content</b><span>Manuals, ERC, circulars, forms, filings, state references</span></div>
+        <div class="flow-step"><b>Carrier Decision</b><span>Adopt, modify, defer, reject, or handle by state</span></div>
+        <div class="flow-step"><b>Configuration</b><span>Rates, rules, forms, deviations, effective dates</span></div>
+        <div class="flow-step"><b>Review</b><span>Human approval, confidence, source traceability</span></div>
+        <div class="flow-step"><b>Execution</b><span>Underwriting, rating, forms, renewals, downstream data</span></div>
+        <div class="flow-step"><b>Evidence</b><span>Approvals, filings, change history, audit trail</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="stack">
+      <div class="section-header">
+        <div>
+          <h2>Minimum Viable ISO / Verisk Product Stack</h2>
+          <p>A credible ISO-based PAS or product operations layer needs more than rating tables. It needs source content, interpretive references, structured rating content, forms, circulars, statistical references, and filing context.</p>
+        </div>
+        <span class="pill">Required foundation</span>
+      </div>
+      <div class="stack" aria-label="Minimum viable product stack">
+        <div class="stack-item"><span class="num">1</span><b>Core Line Subscription</b><span>Program structure, forms, rules, loss costs, state exceptions</span></div>
+        <div class="stack-item"><span class="num">2</span><b>Forms, Rules, Loss Costs</b><span>The practical center of rating, forms, and product behavior</span></div>
+        <div class="stack-item"><span class="num">3</span><b>Commercial Lines Manual</b><span>Authoritative interpretation, audit support, and dispute resolution</span></div>
+        <div class="stack-item"><span class="num">4</span><b>ERC</b><span>Machine-readable and human-readable rating and forms logic</span></div>
+        <div class="stack-item"><span class="num">5</span><b>Circulars</b><span>Change management for rates, rules, forms, states, and effective dates</span></div>
+        <div class="stack-item"><span class="num">6</span><b>Statistical Content</b><span>Class, territory, coverage, premium, and exposure reporting references</span></div>
+        <div class="stack-item"><span class="num">7</span><b>Filing References</b><span>State approval context, filing status, deployment gates</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Recommended Product Bundle</h2>
+          <p>The best executive recommendation is a modern MVP bundle that supports repeatable configuration, explainability, maintenance, and compliance controls.</p>
+        </div>
+        <span class="pill">Modern MVP</span>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="kicker">Minimum Manual</div>
+          <h3>Works for narrow launches</h3>
+          <p>Core line, forms, rules, loss costs, manual access, circulars, and statistical references.</p>
+          <ul class="clean">
+            <li>Best for limited line and state scope</li>
+            <li>High manual effort</li>
+            <li>Harder to maintain over time</li>
+          </ul>
+        </article>
+        <article class="card green">
+          <div class="kicker">Recommended</div>
+          <h3>Better modern MVP</h3>
+          <p>Core ISO content plus ERC, circular feeds, statistical code content, and filing references.</p>
+          <ul class="clean">
+            <li>Supports structured ingestion</li>
+            <li>Improves traceability and review</li>
+            <li>Better fit for repeatable product operations</li>
+          </ul>
+        </article>
+        <article class="card blue">
+          <div class="kicker">Fast Rating</div>
+          <h3>Useful but incomplete</h3>
+          <p>Rating-as-a-Service can prove premium quickly, but it needs transparency around source, logic, and forms.</p>
+          <ul class="clean">
+            <li>Good for fast validation</li>
+            <li>Risk of opaque rating</li>
+            <li>Must pair with explainability</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="mvps">
+      <div class="section-header">
+        <div>
+          <h2>Three Commercial MVPs</h2>
+          <p>The three MVPs should be presented as a staged product strategy, not as separate ideas. The initial build creates the configured baseline. Maintenance keeps it current. Filings govern what can be used.</p>
+        </div>
+        <span class="pill">Staged platform</span>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="kicker">MVP 1</div>
+          <h3>Initial Build</h3>
+          <p>Stand up an ISO-based product configuration for an initial line and state footprint.</p>
+          <ul class="clean">
+            <li>Product workspace</li>
+            <li>Rates, rules, and forms configuration</li>
+            <li>Carrier deviations</li>
+            <li>Human approval and evidence</li>
+          </ul>
+        </article>
+        <article class="card green">
+          <div class="kicker">MVP 2</div>
+          <h3>Circular Maintenance</h3>
+          <p>Evaluate and adopt ISO changes across rates, rules, forms, states, and effective dates.</p>
+          <ul class="clean">
+            <li>Change intake and impact summary</li>
+            <li>Adoption decision workflow</li>
+            <li>Rate, rule, and form change package</li>
+            <li>Regression evidence and activation</li>
+          </ul>
+        </article>
+        <article class="card blue">
+          <div class="kicker">MVP 3</div>
+          <h3>Filings Platform</h3>
+          <p>Connect filing artifacts, SERFF references, approvals, and effective dates to executable configuration.</p>
+          <ul class="clean">
+            <li>Filing workspace</li>
+            <li>Links to rates, rules, and forms</li>
+            <li>Deployment gates</li>
+            <li>Configuration drift checks</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>What Federato Should Own</h2>
+          <p>Federato's strongest value sits in the operating layer that makes ISO and Verisk content useful inside carrier workflows.</p>
+        </div>
+        <span class="pill">Product boundary</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Federato Capability</th>
+              <th>Carrier Value</th>
+              <th>Verisk Relevance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Source traceability</td>
+              <td>Teams can explain where a rate, rule, form, or deviation came from.</td>
+              <td>Extends the value of Verisk content into operational workflows.</td>
+            </tr>
+            <tr>
+              <td>Configuration workflow</td>
+              <td>Rates, rules, and forms move through review, testing, approval, and activation.</td>
+              <td>Makes Verisk content easier to adopt and maintain.</td>
+            </tr>
+            <tr>
+              <td>Circular adoption</td>
+              <td>Carriers can see what changed and decide how to respond by state and product.</td>
+              <td>Creates a stronger use case for ongoing ISO and ERC updates.</td>
+            </tr>
+            <tr>
+              <td>Filing integration</td>
+              <td>Approved filings govern whether configuration can deploy.</td>
+              <td>Connects filing references to the product behavior they authorize.</td>
+            </tr>
+            <tr>
+              <td>Portfolio impact</td>
+              <td>Product decisions can be evaluated against in-force, renewal, quote, and submission impact.</td>
+              <td>Adds workflow and business context around source content changes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="partner">
+      <div class="section-header">
+        <div>
+          <h2>Verisk Partnership Fit</h2>
+          <p>The conversation should test how Federato can use, complement, and operationalize Verisk content without overreaching on licensing or direct redistribution assumptions.</p>
+        </div>
+        <span class="pill">Meeting posture</span>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Near-Term Path</h3>
+          <ul class="clean">
+            <li>Use licensed ISO publications and carrier-approved content paths.</li>
+            <li>Report company, product, state, and program usage to ISO/Verisk for audit support.</li>
+            <li>Design for carrier-mediated ERC where customers can supply content.</li>
+            <li>Preserve an ISV or technology partner path as a mid to long term option if Verisk is open to it.</li>
+            <li>Keep human review and carrier approval as core controls.</li>
+          </ul>
+        </article>
+        <article class="card blue">
+          <h3>Usage Reporting for Auditability</h3>
+          <p>Federato can report company usage by ISO state, product, program, and source content for ISO/Verisk audit review.</p>
+          <ul class="clean">
+            <li>Carrier or MGA remains the license holder.</li>
+            <li>Federato uses approved customer content paths.</li>
+            <li>Company, product, state, and program usage is captured.</li>
+            <li>Usage records support ISO/Verisk entitlement audits.</li>
+            <li>Human approval and audit evidence remain core controls.</li>
+          </ul>
+        </article>
+        <article class="card green">
+          <h3>Partner Value Hypothesis</h3>
+          <ul class="clean">
+            <li>Federato can increase operational adoption of Verisk content.</li>
+            <li>Federato can surface rate, rule, form, filing, and circular pain points inside carrier workflows.</li>
+            <li>Federato can help carriers understand impact, not just access content.</li>
+            <li>Federato can become a practical workflow layer around ISO-based product operations.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="questions">
+      <div class="section-header">
+        <div>
+          <h2>Questions for the Verisk Call</h2>
+          <p>These questions are designed to clarify content access, partnership options, workflow opportunities, and near-term feasibility.</p>
+        </div>
+        <span class="pill">Discussion guide</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th>Executive Question</th>
+              <th>Why It Matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Content Path</td>
+              <td>What are the preferred paths for a technology provider to work with licensed ISO content when the carrier is the content license holder?</td>
+              <td>Clarifies whether carrier-mediated ERC and source access can support near-term implementations.</td>
+            </tr>
+            <tr>
+              <td>Usage Audit</td>
+              <td>What usage data should Federato provide so ISO/Verisk can audit which products, states, programs, and content sources each carrier or MGA is using?</td>
+              <td>Gives ISO/Verisk a practical customer usage audit trail.</td>
+            </tr>
+            <tr>
+              <td>ERC</td>
+              <td>Which ERC formats and delivery models are most practical for carriers implementing or maintaining ISO-based products?</td>
+              <td>Guides architecture around machine-readable and human-readable content.</td>
+            </tr>
+            <tr>
+              <td>Workflow</td>
+              <td>Where do carriers struggle most after receiving ISO content: interpretation, configuration, circular adoption, filing alignment, testing, or audit evidence?</td>
+              <td>Tests Federato's strongest workflow wedge.</td>
+            </tr>
+            <tr>
+              <td>Forms Logic</td>
+              <td>How does Verisk see forms attachment logic evolving across manuals, ERC, and other structured content?</td>
+              <td>Forms are central to both PAS execution and filing governance.</td>
+            </tr>
+            <tr>
+              <td>Partnership</td>
+              <td>Over the mid- to long-term, what partner models exist for ISVs or workflow platforms that help carriers operationalize ISO content?</td>
+              <td>Preserves optionality without making a formal partner path a near-term dependency.</td>
+            </tr>
+            <tr>
+              <td>Boundaries</td>
+              <td>What usage, display, derivation, audit, and redistribution boundaries should Federato understand early?</td>
+              <td>Prevents product assumptions from conflicting with licensing and compliance constraints.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Executive Takeaways</h2>
+          <p>The call should leave Verisk with a clear view of Federato as a workflow and intelligence layer for ISO-based product operations.</p>
+        </div>
+        <span class="pill">Close</span>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Promote The Full PAS Path</h3>
+          <p>The credible posture is a staged PAS build, with coexistence as a migration bridge and deeper PAS capabilities sequenced into the roadmap.</p>
+        </article>
+        <article class="card green">
+          <h3>Lead With Operational Pain</h3>
+          <p>Carriers need help translating ISO content into rates, rules, forms, filings, approvals, and evidence.</p>
+        </article>
+        <article class="card blue">
+          <h3>Make Verisk More Actionable</h3>
+          <p>Federato can help Verisk content move from source material into governed carrier workflows.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="section-header">
+        <div>
+          <h2>Source References</h2>
+          <p>These are the Verisk-facing source references already captured in the strategy documents.</p>
+        </div>
+        <span class="pill">Reference list</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ISO Forms, Rules, and Loss Costs</td>
+              <td><a class="source-link" href="https://www.verisk.com/products/forms-rules-and-loss-costs/" target="_blank" rel="noopener noreferrer">https://www.verisk.com/products/forms-rules-and-loss-costs/</a></td>
+            </tr>
+            <tr>
+              <td>ISO Electronic Rating Content</td>
+              <td><a class="source-link" href="https://www.verisk.com/products/erc/" target="_blank" rel="noopener noreferrer">https://www.verisk.com/products/erc/</a></td>
+            </tr>
+            <tr>
+              <td>ISO Electronic Rating Content Brochure</td>
+              <td><a class="source-link" href="https://www.verisk.com/siteassets/media/downloads/iso/iso-electronic-rating-content-suite.pdf" target="_blank" rel="noopener noreferrer">https://www.verisk.com/siteassets/media/downloads/iso/iso-electronic-rating-content-suite.pdf</a></td>
+            </tr>
+            <tr>
+              <td>ISO Core Line Services Overview</td>
+              <td><a class="source-link" href="https://www.verisk.com/siteassets/media/downloads/iso/your-business-stronger-and-better-with-iso.pdf" target="_blank" rel="noopener noreferrer">https://www.verisk.com/siteassets/media/downloads/iso/your-business-stronger-and-better-with-iso.pdf</a></td>
+            </tr>
+            <tr>
+              <td>ISO Policy Forms</td>
+              <td><a class="source-link" href="https://www.verisk.com/siteassets/media/downloads/iso/isos-policy-forms.pdf" target="_blank" rel="noopener noreferrer">https://www.verisk.com/siteassets/media/downloads/iso/isos-policy-forms.pdf</a></td>
+            </tr>
+            <tr>
+              <td>State Filing Handbook</td>
+              <td><a class="source-link" href="https://www.verisk.com/products/state-filing-handbook/" target="_blank" rel="noopener noreferrer">https://www.verisk.com/products/state-filing-handbook/</a></td>
+            </tr>
+            <tr>
+              <td>Rating-as-a-Service Flyer</td>
+              <td><a class="source-link" href="https://www.verisk.com/siteassets/media/downloads/underwriting/discover-how-cloud-based-rating-can-deliver-speed-and-value.pdf" target="_blank" rel="noopener noreferrer">https://www.verisk.com/siteassets/media/downloads/underwriting/discover-how-cloud-based-rating-can-deliver-speed-and-value.pdf</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <b>Recommended executive posture:</b> position Federato as the workflow and governance layer that helps carriers operationalize licensed ISO / Verisk content across rates, rules, forms, circular adoption, filing gates, and portfolio-aware underwriting decisions.
+    </footer>
+  </main>
+</body>
+</html>
